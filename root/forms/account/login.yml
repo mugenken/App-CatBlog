@@ -1,0 +1,25 @@
+---
+
+action: /login
+indicator: submit
+
+auto_id: '%n'
+attributes:
+    class: login-form
+
+elements:
+    - type: Text
+      name: username
+      label: Username
+      constraints:
+          - Required
+
+    - type: Password
+      name: password
+      label: Password
+      constraints:
+          - Required
+
+    - type: Submit
+      name: submit
+      value: Register

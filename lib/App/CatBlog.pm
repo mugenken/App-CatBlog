@@ -19,6 +19,11 @@ use Catalyst::Runtime 5.80;
 use Catalyst qw/
     -Debug
     ConfigLoader
+    Authentication
+    Authorization::Roles
+    Session
+    Session::Store::FastMmap
+    Session::State::Cookie
     Static::Simple
 /;
 
@@ -39,6 +44,27 @@ __PACKAGE__->config(
     name => 'App::CatBlog',
     # Disable deprecated behavior needed by old applications
     disable_component_resolution_regex_fallback => 1,
+    authentication => {
+        use_session => 1,
+        default_realm => 'local',
+        realms => {
+            local => {
+                credential => {
+                    class         => 'Password',
+                    password_field => 'password',
+                    password_type =>  'hashed',
+                    password_hash_type => 'SHA-1',
+                },
+                store => {
+                    class => 'DBIx::Class',
+                    user_class => 'CatBlogDB::Account',
+                    id_field => 'id',
+                    role_relation => 'roles',
+                    role_field => 'name',
+                },
+            },
+        },
+    },
 );
 
 # Start the application

@@ -6,3 +6,10 @@
      content WRAPPER site/html.tt2 + site/layout.tt2;
    END;
 -%]
+[% IF c.user_exists %]
+Logged in as <b>[% c.user.display %]</b> (<a href="[% c.uri_for('/logout') %]">Log out</a>)
+[% ELSE %]
+Not logged in.
+(<a href="[% c.uri_for('/login') %]">Login</a>|<a href="[% c.uri_for('/register') %]">Register</a>)
+[% END %]
+
