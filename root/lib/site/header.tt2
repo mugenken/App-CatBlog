@@ -1,3 +1,5 @@
 <!-- BEGIN site/header -->
-<h1 class="title">[% template.title or site.title %]</h1>
+<div>
+    <img src="/static/images/cat.jpg" alt="Cat" width="100">
+</div>
 <!-- END site/header -->

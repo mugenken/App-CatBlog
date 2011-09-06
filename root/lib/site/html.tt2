@@ -2,9 +2,6 @@
 <html>
  <head>
   <title>[% template.title or site.title %]</title>
-  <style type="text/css">
-[% PROCESS ttsite.css %]
-  </style>
  </head>
  <body>
 [% content %]

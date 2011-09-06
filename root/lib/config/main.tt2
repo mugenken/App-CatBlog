@@ -12,16 +12,15 @@
 
    # define a data structure to hold sitewide data
    site = {
-     title     => 'App::Catblog',
+     title     => 'App::CatBlog',
      copyright => '2011 Mugen Kenichi',
    };
 
    # load up any other configuration items
-   PROCESS config/col.tt2
-         + config/url.tt2;
+   PROCESS config/url.tt2;
 
    # set defaults for variables, etc.
-   DEFAULT
-     message = 'There is no message';
+   #DEFAULT
+   #  message = 'There is no message';
 
 -%]
