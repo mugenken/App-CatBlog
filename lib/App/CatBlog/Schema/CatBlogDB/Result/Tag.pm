@@ -1,11 +1,11 @@
-package App::CatBlog::Schema::Result::Tag;
+package App::CatBlog::Schema::CatBlogDB::Result::Tag;
 
 use strict;
 use warnings;
 
 =head1 NAME
 
-App::CatBlog::Schema::Tag - a schema class representing a tag (or "label" or
+App::CatBlog::Schema::CatBlogDB::Tag - a schema class representing a tag (or "label" or
 "keyword").
 
 =head1 SYNOPSIS
@@ -64,7 +64,7 @@ __PACKAGE__->set_primary_key( qw( id ) );
 __PACKAGE__->resultset_attributes( { order_by => [ 'label' ] } );
 __PACKAGE__->add_unique_constraint( [ 'label' ] );
 __PACKAGE__->has_many(
-    posts_assoc => 'App::CatBlog::Schema::Result::PostTagAssoc',
+    posts_assoc => 'App::CatBlog::Schema::CatBlogDB::Result::PostTagAssoc',
     'tag_id',
 );
 __PACKAGE__->many_to_many(
@@ -74,9 +74,9 @@ __PACKAGE__->many_to_many(
 
 =head1 SEE ALSO
 
-L<App::CatBlog::Schema>, L<App::CatBlog>, L<DBIx::Class>
+L<App::CatBlog::Schema::CatBlogDB>, L<App::CatBlog>, L<DBIx::Class>
 
-L<App::CatBlog::Schema::Post>
+L<App::CatBlog::Schema::CatBlogDB::Post>
 
 =head1 AUTHOR
 

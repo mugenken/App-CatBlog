@@ -1,4 +1,4 @@
-package App::CatBlog::Schema::Result::Account;
+package App::CatBlog::Schema::CatBlogDB::Result::Account;
 
 use strict;
 use warnings;
@@ -7,7 +7,7 @@ use Digest;
 
 =head1 NAME
 
-App::CatBlog::Schema::Account - a schema class representing an account.
+App::CatBlog::Schema::CatBlogDB::Account - a schema class representing an account.
 
 =head1 SYNOPSIS
 
@@ -80,7 +80,7 @@ use base qw( DBIx::Class );
 
 __PACKAGE__->load_components( qw( TimeStamp InflateColumn::DateTime Core ) );
 __PACKAGE__->table( 'account' );
-__PACKAGE__->resultset_class('App::CatBlog::Schema::ResultSet::Account');
+__PACKAGE__->resultset_class('App::CatBlog::Schema::CatBlogDB::ResultSet::Account');
 __PACKAGE__->add_columns(
     id => {
         data_type         => 'bigint',
@@ -149,11 +149,11 @@ __PACKAGE__->set_primary_key( qw( id ) );
 __PACKAGE__->add_unique_constraint ( [ 'url' ]);
 
 __PACKAGE__->might_have(
-    blogs => 'App::CatBlog::Schema::Result::Blog',
+    blogs => 'App::CatBlog::Schema::CatBlogDB::Result::Blog',
     'owner_id',
 );
 __PACKAGE__->might_have(
-    posts => 'App::CatBlog::Schema::Result::Entry',
+    posts => 'App::CatBlog::Schema::CatBlogDB::Result::Entry',
     'author_id',
     { where => { 'foreign.parent_id' => 0 }},
 );
@@ -245,9 +245,9 @@ sub display
 
 =head1 SEE ALSO
 
-L<App::CatBlog::Schema>, L<App::CatBlog>, L<DBIx::Class>
+L<App::CatBlog::Schema::CatBlogDB>, L<App::CatBlog>, L<DBIx::Class>
 
-L<App::CatBlog::Schema::Post>
+L<App::CatBlog::Schema::CatBlogDB::Post>
 
 =head1 AUTHOR
 

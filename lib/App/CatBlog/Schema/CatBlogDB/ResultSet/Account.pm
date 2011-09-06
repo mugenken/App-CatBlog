@@ -1,4 +1,4 @@
-package App::CatBlog::Schema::ResultSet::Account;
+package App::CatBlog::Schema::CatBlogDB::ResultSet::Account;
 
 use strict;
 use warnings;

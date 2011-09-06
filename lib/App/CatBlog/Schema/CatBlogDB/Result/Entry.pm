@@ -1,11 +1,11 @@
-package App::CatBlog::Schema::Result::Entry;
+package App::CatBlog::Schema::CatBlogDB::Result::Entry;
 
 use strict;
 use warnings;
 
 =head1 NAME
 
-App::CatBlog::Schema::Entry - a schema class representing a blog post
+App::CatBlog::Schema::CatBlogDB::Entry - a schema class representing a blog post
 or comment.
 
 =head1 SYNOPSIS
@@ -124,7 +124,7 @@ __PACKAGE__->resultset_attributes( { order_by => [ qw( me.pubdate me.id ) ] } );
 #__PACKAGE__->add_unique_constraint( [ 'pubdate' ] );
 
 __PACKAGE__->belongs_to(
-    author => 'App::CatBlog::Schema::Result::Account',
+    author => 'App::CatBlog::Schema::CatBlogDB::Result::Account',
     'author_id'
 );
 
@@ -132,7 +132,7 @@ __PACKAGE__->belongs_to(
 # a link between posts and blogs so we don't have to have a blog ID on
 # comments. A post can now magically be on many blogs. This seems OK with me!
 __PACKAGE__->has_many( 
-    blog_entries => 'App::CatBlog::Schema::Result::BlogEntry',
+    blog_entries => 'App::CatBlog::Schema::CatBlogDB::Result::BlogEntry',
     'entry_id'
 );
 __PACKAGE__->many_to_many(
@@ -140,11 +140,11 @@ __PACKAGE__->many_to_many(
 );
 
 __PACKAGE__->has_many(
-    comments => 'App::CatBlog::Schema::Result::Entry',
+    comments => 'App::CatBlog::Schema::CatBlogDB::Result::Entry',
     'parent_id',
 );
 __PACKAGE__->has_many(
-    tags_assoc => 'App::CatBlog::Schema::Result::PostTagAssoc',
+    tags_assoc => 'App::CatBlog::Schema::CatBlogDB::Result::PostTagAssoc',
     'post_id',
 );
 __PACKAGE__->many_to_many(
@@ -152,7 +152,7 @@ __PACKAGE__->many_to_many(
     'tag'
 );
 __PACKAGE__->belongs_to(
-    parent  => 'App::CatBlog::Schema::Result::Entry',
+    parent  => 'App::CatBlog::Schema::CatBlogDB::Result::Entry',
     'parent_id'
 );
 
@@ -192,7 +192,7 @@ sub add_comment
 =head2 $self->tags_by_label_rs()
 
 Gets a result set of the tags associated with this post ordered according
-to the label. See: L<App::CatBlog::Schema::Tag> .
+to the label. See: L<App::CatBlog::Schema::CatBlogDB::Tag> .
 
 =cut
 
@@ -226,7 +226,7 @@ sub _get_tags_list
 
 Associates the tags in @tag_objects with the post. Each $tag out of
 @tag_objects can either be a textual label (as a Perl scalar), or
-an L<App::CatBlog::Schema::Tag> object.
+an L<App::CatBlog::Schema::CatBlogDB::Tag> object.
 
 =cut
 
@@ -287,7 +287,7 @@ sub assign_tags
 
 =head1 SEE ALSO
 
-L<App::CatBlog::Schema>, L<App::CatBlog>, L<DBIx::Class>
+L<App::CatBlog::Schema::CatBlogDB>, L<App::CatBlog>, L<DBIx::Class>
 
 =head1 AUTHOR
 

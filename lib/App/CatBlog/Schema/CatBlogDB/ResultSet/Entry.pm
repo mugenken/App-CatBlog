@@ -1,4 +1,4 @@
-package App::CatBlog::Schema::ResultSet::Entry;
+package App::CatBlog::Schema::CatBlogDB::ResultSet::Entry;
 
 use strict;
 use warnings;
@@ -96,7 +96,7 @@ sub _blog_id {
 
 =head1 SEE ALSO
 
-L<App::CatBlog::Schema>, L<App::CatBlog>, L<DBIx::Class>
+L<App::CatBlog::Schema::CatBlogDB>, L<App::CatBlog>, L<DBIx::Class>
 
 =head1 AUTHOR
 

@@ -1,11 +1,11 @@
-package App::CatBlog::Schema::Result::Blog;
+package App::CatBlog::Schema::CatBlogDB::Result::Blog;
 
 use strict;
 use warnings;
 
 =head1 NAME
 
-App::CatBlog::Schema::Result::Blog - a schema class representing an entire blog!
+App::CatBlog::Schema::CatBlogDB::Result::Blog - a schema class representing an entire blog!
 
 =head1 SYNOPSIS
       
@@ -127,11 +127,11 @@ __PACKAGE__->set_primary_key( qw( id ) );
 __PACKAGE__->add_unique_constraint ( [ 'url' ]);
 
 __PACKAGE__->belongs_to( 
-    owner => 'App::CatBlog::Schema::Result::Account',
+    owner => 'App::CatBlog::Schema::CatBlogDB::Result::Account',
     'owner_id'
 );
 __PACKAGE__->has_many(
-    blog_entries => "App::CatBlog::Schema::Result::BlogEntry",
+    blog_entries => "App::CatBlog::Schema::CatBlogDB::Result::BlogEntry",
     'blog_id',
 );
 __PACKAGE__->many_to_many(
@@ -140,9 +140,9 @@ __PACKAGE__->many_to_many(
 
 =head1 SEE ALSO
 
-L<App::CatBlog::Schema>, L<App::CatBlog>, L<DBIx::Class>
+L<App::CatBlog::Schema::CatBlogDB>, L<App::CatBlog>, L<DBIx::Class>
 
-L<App::CatBlog::Schema::Post>
+L<App::CatBlog::Schema::CatBlogDB::Post>
 
 =head1 AUTHOR
 

@@ -1,11 +1,11 @@
-package App::CatBlog::Schema::Result::PostTagAssoc;
+package App::CatBlog::Schema::CatBlogDB::Result::PostTagAssoc;
 
 use strict;
 use warnings;
 
 =head1 NAME
 
-App::CatBlog::Schema::PostTagAssoc - a posts <-> tags association.
+App::CatBlog::Schema::CatBlogDB::PostTagAssoc - a posts <-> tags association.
 
 =head1 SYNOPSIS
       
@@ -35,17 +35,17 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key( qw( post_id tag_id ) );
 __PACKAGE__->resultset_attributes( { order_by => [ 'post_id', 'tag_id' ] } );
 __PACKAGE__->belongs_to(
-    post => 'App::CatBlog::Schema::Result::Entry',
+    post => 'App::CatBlog::Schema::CatBlogDB::Result::Entry',
     'post_id',
 );
 __PACKAGE__->belongs_to(
-    tag => 'App::CatBlog::Schema::Result::Tag',
+    tag => 'App::CatBlog::Schema::CatBlogDB::Result::Tag',
     'tag_id',
 );
 
 =head1 SEE ALSO
 
-L<App::CatBlog::Schema::Tag> , L<App::CatBlog::Schema::Post>
+L<App::CatBlog::Schema::CatBlogDB::Tag> , L<App::CatBlog::Schema::CatBlogDB::Post>
 
 =head1 AUTHOR
 

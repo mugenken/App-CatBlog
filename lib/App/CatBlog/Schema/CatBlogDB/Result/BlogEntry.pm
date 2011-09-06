@@ -1,4 +1,4 @@
-package App::CatBlog::Schema::Result::BlogEntry;
+package App::CatBlog::Schema::CatBlogDB::Result::BlogEntry;
 
 use strict;
 use warnings;
@@ -6,7 +6,7 @@ use warnings;
 
 =head1 NAME
 
-App::CatBlog::Schema::Result::BlogEntry - a schema class representing a blog
+App::CatBlog::Schema::CatBlogDB::Result::BlogEntry - a schema class representing a blog
 entry.
 
 =head1 SYNOPSIS
@@ -32,11 +32,11 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key( qw( blog_id entry_id ) );
 
 __PACKAGE__->belongs_to( 
-    'blog' => 'App::CatBlog::Schema::Result::Blog',
+    'blog' => 'App::CatBlog::Schema::CatBlogDB::Result::Blog',
     'blog_id' 
 );
 __PACKAGE__->belongs_to(
-    'entry' => 'App::CatBlog::Schema::Result::Entry',
+    'entry' => 'App::CatBlog::Schema::CatBlogDB::Result::Entry',
     'entry_id',
 );
 
@@ -66,9 +66,9 @@ The ID of the entry.
 
 =head1 SEE ALSO
 
-L<App::CatBlog::Schema>, L<App::CatBlog>, L<DBIx::Class>
+L<App::CatBlog::Schema::CatBlogDB>, L<App::CatBlog>, L<DBIx::Class>
 
-L<App::CatBlog::Schema::Result::Blog>
+L<App::CatBlog::Schema::CatBlogDB::Result::Blog>
 
 =head1 AUTHOR
 
